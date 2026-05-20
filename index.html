@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Library</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1 class="header__title">Prompt Library</h1>
+        <p class="header__subtitle">
+          Save reusable prompts locally in your browser. Nothing leaves your device.
+        </p>
+      </header>
+
+      <main class="main">
+        <section class="panel panel--form" aria-labelledby="form-heading">
+          <h2 id="form-heading" class="panel__title">New prompt</h2>
+          <form id="prompt-form" class="form" novalidate>
+            <div class="field">
+              <label class="field__label" for="prompt-title">Title</label>
+              <input
+                id="prompt-title"
+                name="title"
+                type="text"
+                class="field__input"
+                placeholder="e.g. Code review checklist"
+                autocomplete="off"
+                maxlength="200"
+                required
+              />
+            </div>
+            <div class="field">
+              <label class="field__label" for="prompt-content">Content</label>
+              <textarea
+                id="prompt-content"
+                name="content"
+                class="field__textarea"
+                placeholder="Paste or write your prompt here…"
+                rows="8"
+                required
+              ></textarea>
+            </div>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Save prompt</button>
+              <button type="reset" class="btn btn--ghost" id="clear-form">Clear</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel panel--library" aria-labelledby="library-heading">
+          <div class="library__head">
+            <h2 id="library-heading" class="panel__title">Your prompts</h2>
+            <span class="library__count" id="prompt-count" aria-live="polite">0 saved</span>
+          </div>
+          <div id="empty-state" class="empty" hidden>
+            <p class="empty__title">No prompts yet</p>
+            <p class="empty__text">Add a title and content above, then click <strong>Save prompt</strong>.</p>
+          </div>
+          <ul id="prompt-list" class="prompt-list" role="list"></ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <p>Stored in <code>localStorage</code> under the key <code>promptLibrary.v1</code>.</p>
+      </footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
