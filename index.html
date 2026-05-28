@@ -55,9 +55,38 @@
             <h2 id="library-heading" class="panel__title">Your prompts</h2>
             <span class="library__count" id="prompt-count" aria-live="polite">0 saved</span>
           </div>
+          <div class="library__toolbar">
+            <div class="filter-tabs" role="tablist" aria-label="Filter prompts">
+              <button type="button" class="filter-tabs__btn is-active" data-filter="all" role="tab" aria-selected="true">
+                All
+              </button>
+              <button type="button" class="filter-tabs__btn" data-filter="rated" role="tab" aria-selected="false">
+                Rated
+              </button>
+              <button type="button" class="filter-tabs__btn" data-filter="unrated" role="tab" aria-selected="false">
+                Unrated
+              </button>
+              <button type="button" class="filter-tabs__btn" data-filter="high" role="tab" aria-selected="false">
+                4+ stars
+              </button>
+            </div>
+            <label class="sort-field">
+              <span class="sort-field__label">Sort by</span>
+              <select id="sort-select" class="sort-field__select">
+                <option value="newest">Newest</option>
+                <option value="rating-desc">Highest rated</option>
+                <option value="rating-asc">Lowest rated</option>
+              </select>
+            </label>
+          </div>
+          <p class="library__avg" id="rating-summary" hidden></p>
           <div id="empty-state" class="empty" hidden>
             <p class="empty__title">No prompts yet</p>
             <p class="empty__text">Add a title and content above, then click <strong>Save prompt</strong>.</p>
+          </div>
+          <div id="filter-empty-state" class="empty" hidden>
+            <p class="empty__title">No prompts match this filter</p>
+            <p class="empty__text">Try another filter or rate your saved prompts with the stars below each title.</p>
           </div>
           <ul id="prompt-list" class="prompt-list" role="list"></ul>
         </section>
