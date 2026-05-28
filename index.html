@@ -43,6 +43,23 @@
                 required
               ></textarea>
             </div>
+            <div class="field">
+              <label class="field__label" for="prompt-model">Model name</label>
+              <input
+                id="prompt-model"
+                name="model"
+                type="text"
+                class="field__input"
+                placeholder="e.g. gpt-5.5-medium"
+                autocomplete="off"
+                maxlength="100"
+                required
+              />
+            </div>
+            <label class="field field--inline" for="prompt-is-code">
+              <input id="prompt-is-code" name="isCode" type="checkbox" />
+              <span>Treat content as code for token estimation</span>
+            </label>
             <div class="form__actions">
               <button type="submit" class="btn btn--primary">Save prompt</button>
               <button type="reset" class="btn btn--ghost" id="clear-form">Clear</button>
@@ -54,6 +71,18 @@
           <div class="library__head">
             <h2 id="library-heading" class="panel__title">Your prompts</h2>
             <span class="library__count" id="prompt-count" aria-live="polite">0 saved</span>
+          </div>
+          <div class="library__data-actions" aria-label="Import and export">
+            <button type="button" class="btn btn--ghost" id="export-btn">Export</button>
+            <button type="button" class="btn btn--ghost" id="import-btn">Import</button>
+            <input
+              type="file"
+              id="import-file"
+              class="visually-hidden"
+              accept="application/json,.json"
+              aria-hidden="true"
+              tabindex="-1"
+            />
           </div>
           <div class="library__toolbar">
             <div class="filter-tabs" role="tablist" aria-label="Filter prompts">
